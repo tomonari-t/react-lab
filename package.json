@@ -1,0 +1,16 @@
+{
+  "name": "reim-reselect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "reim-reselect.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-es2016": "^6.24.1"
+  }
+}
