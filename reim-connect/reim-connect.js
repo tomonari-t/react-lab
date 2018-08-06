@@ -220,6 +220,24 @@ function getDependsOnOwnProps(mapToProps) {
  */
 
 function noop() {}
+function makeSelectorStateful(sourceSelector) {
+  const selector = {
+    run: function(props, storeState) {
+      try {
+        const nextProps = sourceSelector(storeState, props)
+        if (nextProps !== selector.props || selector.error) {
+          selector.shouldComponentUpdate = true
+          selector.props = nextProps
+          selector.error = null
+        }
+      } catch(e) {
+        selector.shouldComponentUpdate = true
+        selector.error = error
+      }
+    }
+  }
+  return selector
+}
 
 function connectHoC(selectorFactory, {
   shouldHandleStateChanges,
@@ -262,7 +280,7 @@ function connectHoC(selectorFactory, {
 
       initSelector(dispatch, storeState) {
         const sourceSelector = selectorFactory(dispatch, selectorFactoryOptions)
-        this.selector = makeSekectorStateful(sourceSelector)
+        this.selector = makeSelectorStateful(sourceSelector)
         this.selector.run(this.props, storeState)
       }
 
