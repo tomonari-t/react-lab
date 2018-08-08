@@ -11,6 +11,12 @@
   "license": "ISC",
   "devDependencies": {
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2016": "^6.24.1"
+  },
+  "dependencies": {
+    "redux": "^4.0.0",
+    "redux-actions": "^2.6.1",
+    "redux-thunk": "^2.3.0"
   }
 }
