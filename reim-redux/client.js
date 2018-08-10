@@ -1,6 +1,6 @@
-import createStore from './redux'
-import { createAction } from 'redux-actions'
-import { handleActions } from 'redux-actions'
+// import { createStore, combineReducers } from 'redux'
+import createStore, { combineReducers } from './redux'
+import { handleActions, createAction} from 'redux-actions'
 
 const ADD_INCREMENT = 'add'
 
@@ -14,8 +14,8 @@ const reducer = handleActions({
 }, {
   num: 0
 })
-console.log(reducer())
-const store = createStore(reducer, { num : 0 })
+const store = createStore(reducer)
+// const store = createStore(combineReducers({ reducer }))
 
 store.dispatch(addNum())
 store.dispatch(addNum())
